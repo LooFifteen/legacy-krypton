@@ -15,22 +15,16 @@
   "icon": "assets/krypton/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "me.steinborn.krypton.mod.client.KryptonClientInitializer"
-    ],
-    "server": [
-      "me.steinborn.krypton.mod.server.KryptonServerInitializer"
-    ],
     "main": [
-      "me.steinborn.krypton.mod.shared.KryptonSharedInitializer"
+      "me.steinborn.krypton.Krypton"
     ]
   },
   "mixins": [
     "krypton.mixins.json"
   ],
-  "accessWidener": "krypton.accesswidener",
   "depends": {
-    "fabricloader": ">=0.11.3",
-    "minecraft": ">=1.21"
+    "java": ">=21",
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.8.9"
   }
 }

@@ -1,11 +1,18 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'legacy-looming' version '1.7-SNAPSHOT'
     id 'maven-publish'
 }
 
 repositories {
     maven {
         url "https://papermc.io/repo/repository/maven-public/"
+    }
+    maven {
+        url "https://repo.hypera.dev/releases/"
+    }
+    maven {
+        url "https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1/"
     }
     maven { name 'Jitpack'; url 'https://jitpack.io' }
 }
@@ -26,9 +33,17 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    mappings "net.legacyfabric:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation include("com.velocitypowered:velocity-native:3.3.0-SNAPSHOT")
+
+    modImplementation legacy.apiModule("legacy-fabric-logger-api-v1", "${project.api_version}+${project.minecraft_version}")
+    modImplementation include("dev.lu15:legacy-netty:0.1.1") // we require a modern version of netty
+    modImplementation include("dev.lu15:legacy-guava:0.1.0") // velocity-native requires a modern version of guava
+
+    // dev env
+    modLocalRuntime "me.djtheredstoner:DevAuth-fabric:1.2.1"
+    implementation "org.apache.logging.log4j:log4j-core:2.23.1"
 }
 
 test {
@@ -88,8 +103,4 @@ afterEvaluate {
             }
         }
     }
-}
-
-loom {
-    accessWidenerPath = file("src/main/resources/krypton.accesswidener")
 }

@@ -2,19 +2,15 @@
     "required": true,
     "minVersion": "0.8",
     "package": "me.steinborn.krypton.mixin",
-    "compatibilityLevel": "JAVA_16",
-    "plugin": "me.steinborn.krypton.mod.shared.KryptonMixinPlugin",
-    "client": [],
+    "compatibilityLevel": "JAVA_21",
+    "plugin": "me.steinborn.krypton.KryptonMixinPlugin",
     "mixins": [
-        "shared.debugaid.ResourceLeakDetectorDisableConditionalMixin",
-        "shared.network.microopt.EntityTrackerEntryMixin",
-        "shared.network.microopt.StringEncodingMixin",
-        "shared.network.microopt.VarIntsMixin",
-        "shared.network.pipeline.LegacyQueryHandlerMixin",
-        "shared.network.pipeline.SplitterHandlerMixin",
-        "shared.network.pipeline.compression.ClientConnectionMixin",
-        "shared.network.pipeline.encryption.ClientConnectionMixin",
-        "shared.network.pipeline.encryption.ServerLoginNetworkHandlerMixin"
+      "network.microopt.PacketByteBufMixin",
+      "network.pipeline.LegacyQueryHandlerMixin",
+      "network.pipeline.SplitterHandlerMixin",
+      "network.pipeline.compression.ClientConnectionMixin",
+      "network.pipeline.encryption.ClientConnectionMixin",
+      "network.pipeline.encryption.ServerLoginNetworkHandlerMixin"
     ],
     "injectors": {
         "defaultRequire": 1

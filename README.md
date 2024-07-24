@@ -1,3 +1,6 @@
+# legacy-krypton
+This repository is a fork of the original Krypton mod by astei to port it to LegacyFabric 1.8.9.
+
 ![Krypton logo](https://user-images.githubusercontent.com/16436212/102424564-692de280-3fd9-11eb-98a2-ac125cb8e507.png)
 
 # Krypton
